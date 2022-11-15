@@ -1,10 +1,29 @@
 console.log("welcome")
 
 
+const cardsObject = {
+    suit: ['&#9824;','&#9827;', '&#9829;', '&#9830;'],
+    value: [2,3,4,5,6,7,8,9,10],
+    faceValue: ['J', 'Q', 'K', 'A'],
+}
 
-let cardDeck = ["A&#9824;", "A&#9827;", "A&#9829;", "A&#9830;", "K&#9824;", "K&#9827;", "K&#9829;", "K&#9830;", "Q&#9824;", "Q&#9827;", "Q&#9829;", "Q&#9830;", "J&#9824;", "J&#9827;", "J&#9829;", "J&#9830;", "10&#9824;", "10&#9827;", "10&#9829;", "10&#9830;", "9&#9824;", "9&#9827;", "9&#9829;", "9&#9830;", "8&#9824;", "8&#9827;", "8&#9829;", "8&#9830;", "7&#9824;", "7&#9827;", "7&#9829;", "7&#9830;", "6&#9824;", "6&#9827;", "6&#9829;", "6&#9830;", "5&#9824;", "5&#9827;", "5&#9829;", "5&#9830;", "4&#9824;", "4&#9827;", "4&#9829;", "4&#9830;", "3&#9824;", "3&#9827;", "3&#9829;", "3&#9830;", "2&#9824;", "2&#9827;", "2&#9829;", "2&#9830;"];
+let cardDeckArray = []
 
-console.log(cardDeck)
+function cardDeck() {
+    for (let i = 0; i<cardsObject.suit.length; i++){
+        for (let j = 0; j <cardsObject.value.length; j++){
+        cardDeckArray.push(cardsObject.value[j] + cardsObject.suit[i]) 
+        }
+    }
+    for (let i = 0; i<cardsObject.suit.length; i++){
+        for (let j = 0; j <cardsObject.faceValue.length; j++){
+        cardDeckArray.push(cardsObject.faceValue[j] + cardsObject.suit[i]) 
+        }
+    }
+    return cardDeckArray
+}
+
+
 
 let playerOneDeck = []
 let playerTwoDeck = []
@@ -14,23 +33,14 @@ let buttonStart = document.querySelector('#buttonStart')
 buttonDraw.addEventListener('click', buttonDrawClick);
 buttonStart.addEventListener('click', buttonStartClick);
 
-function shuffleDeck() {
-let currentIndex = cardDeck.length, randomIndex;
-    while (currentIndex !==0){
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex--;
-        [cardDeck[currentIndex], cardDeck[randomIndex]] = [cardDeck[randomIndex], cardDeck[currentIndex]];
-    }
-    return cardDeck
-}
-
 function dealDeck() {
+    cardDeck()
     shuffleDeck()
-    for (let i = 0; i < cardDeck.length; i++){
+    for (let i = 0; i < cardDeckArray.length; i++){
         if (i % 2 === 0) {
-            playerOneDeck.push(cardDeck[i])
+            playerOneDeck.push(cardDeckArray[i])
         } else if (i % 2 !==0) {
-            playerTwoDeck.push(cardDeck[i])
+            playerTwoDeck.push(cardDeckArray[i])
         }
     }
     return
@@ -40,8 +50,25 @@ function buttonStartClick(){
     dealDeck()
 }
 
+function shuffleDeck() {
+let currentIndex = cardDeckArray.length, randomIndex;
+    while (currentIndex !==0){
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        [cardDeckArray[currentIndex], cardDeckArray[randomIndex]] = [cardDeckArray[randomIndex], cardDeckArray[currentIndex]];
+    }
+    console.log(cardDeckArray)
+    return cardDeckArray
+}
+
+
 function buttonDrawClick() {
     document.querySelector('#playerOneHand').innerHTML = playerOneDeck[0];
     document.querySelector('#playerTwoHand').innerHTML = playerTwoDeck[0];
+ 
     
+}
+
+function checkWinnerHand(){
+
 }
