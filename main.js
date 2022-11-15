@@ -4,3 +4,16 @@ let cardDeck = ["A&#9824;", "A&#9827;", "A&#9829;", "A&#9830;", "K&#9824;", "K&#
 
 console.log(cardDeck)
 
+let playerOneDeck = []
+let playerTwoDeck = []
+
+
+function shuffleDeck() {
+let currentIndex = cardDeck.length, randomIndex;
+    while (currentIndex !==0){
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        [cardDeck[currentIndex], cardDeck[randomIndex]] = [cardDeck[randomIndex], cardDeck[currentIndex]];
+    }
+    return cardDeck
+}
