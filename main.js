@@ -17,3 +17,17 @@ let currentIndex = cardDeck.length, randomIndex;
     }
     return cardDeck
 }
+
+function dealDeck() {
+    shuffleDeck()
+    for (let i = 0; i < cardDeck.length; i++){
+        if (i % 2 === 0) {
+            playerOneDeck.push(cardDeck[i])
+            console.log(playerOneDeck)
+        } else if (i % 2 !==0) {
+            playerTwoDeck.push(cardDeck[i])
+            console.log(playerTwoDeck)
+        }
+    }
+}
+
