@@ -7,6 +7,31 @@ const cardsObject = {
 }
 
 let cardDeckArray = []
+let playerOneDeck = [];
+let playerTwoDeck = [];
+let buttonDraw = document.querySelector('#buttonDraw')
+let buttonStart = document.querySelector('#buttonStart')
+let warExtraArray = [];
+buttonDraw.addEventListener('click', buttonDrawClick);
+buttonStart.addEventListener('click', buttonStartClick);
+
+
+function buttonStartClick(){
+    dealDeck()
+}
+
+function dealDeck() {
+    cardDeck()
+    shuffleDeck()
+    for (let i = 0; i < cardDeckArray.length; i++){
+        if (i % 2 === 0) {
+            playerOneDeck.push(cardDeckArray[i])
+        } else if (i % 2 !==0) {
+            playerTwoDeck.push(cardDeckArray[i])
+        }
+    }
+    return
+}
 
 function cardDeck() {
     for (let i = 0; i<cardsObject.suit.length; i++){
@@ -22,30 +47,6 @@ function cardDeck() {
     return cardDeckArray
 }
 
-let playerOneDeck = [];
-let playerTwoDeck = [];
-let buttonDraw = document.querySelector('#buttonDraw')
-let buttonStart = document.querySelector('#buttonStart')
-let warExtraArray = [];
-buttonDraw.addEventListener('click', buttonDrawClick);
-buttonStart.addEventListener('click', buttonStartClick);
-
-function dealDeck() {
-    cardDeck()
-    shuffleDeck()
-    for (let i = 0; i < cardDeckArray.length; i++){
-        if (i % 2 === 0) {
-            playerOneDeck.push(cardDeckArray[i])
-        } else if (i % 2 !==0) {
-            playerTwoDeck.push(cardDeckArray[i])
-        }
-    }
-    return
-}
-
-function buttonStartClick(){
-    dealDeck()
-}
 
 function shuffleDeck() {
 let currentIndex = cardDeckArray.length, randomIndex;
@@ -145,7 +146,7 @@ function checkWinnerHand(){
 
 function warExecution(){
     buttonDraw.removeEventListener('click', buttonDrawClick);
-    setInterval( () => {
+    setTimeout( () => {
         document.querySelector('#playerOneHand').innerHTML = "war! " + playerOneDeckWarHand;
         document.querySelector('#playerTwoHand').innerHTML = "war! " + playerTwoDeckWarHand;
         buttonDraw.addEventListener('click', buttonDrawClick);
@@ -225,6 +226,8 @@ function checkWinnerHandWar(){
 
 }
 
-function shuffleCounter(){
+function shuffleCounterPlayerOne(){
+    let playerOneDeckLength = playerOneDeck.length
+
 
 }
