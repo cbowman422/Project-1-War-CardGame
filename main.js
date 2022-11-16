@@ -22,8 +22,8 @@ function cardDeck() {
     return cardDeckArray
 }
 
-let playerOneDeck = []
-let playerTwoDeck = []
+let playerOneDeck = [];
+let playerTwoDeck = [];
 let buttonDraw = document.querySelector('#buttonDraw')
 let buttonStart = document.querySelector('#buttonStart')
 let warExtraArray = [];
@@ -113,7 +113,7 @@ function buttonDrawClick() {
 function checkWinnerHand(){
     if (playerOneCurrentHandNumber > playerTwoCurrentHandNumber){
         console.log(" player 1s hand")
-        if(warExtraArray !== Array(0)){
+        if(warExtraArray.length !== 0){
         playerOneDeck.push(warExtraArray)
         }
         playerOneDeck.push(playerOneDeck[0])
@@ -124,7 +124,7 @@ function checkWinnerHand(){
     }
     if (playerOneCurrentHandNumber < playerTwoCurrentHandNumber){
         console.log(" player 2s hand")
-        if(warExtraArray !== Array(0)){
+        if(warExtraArray.length !== 0){
             playerTwoDeck.push(warExtraArray)
             }
         playerTwoDeck.push(playerOneDeck[0])
