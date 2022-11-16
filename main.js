@@ -1,6 +1,5 @@
 console.log("welcome")
 
-
 const cardsObject = {
     suit: [' &#9824;',' &#9827;', ' &#9829;', ' &#9830;'],
     value: [2,3,4,5,6,7,8,9,10],
@@ -22,8 +21,6 @@ function cardDeck() {
     }
     return cardDeckArray
 }
-
-
 
 let playerOneDeck = []
 let playerTwoDeck = []
@@ -59,7 +56,6 @@ let currentIndex = cardDeckArray.length, randomIndex;
     }
     return cardDeckArray
 }
-
 
 function buttonDrawClick() {
     document.querySelector('#playerOneHand').innerHTML = playerOneDeck[0];
@@ -108,11 +104,32 @@ function buttonDrawClick() {
         playerTwoCurrentHandNumber = 14;
         console.log(playerTwoCurrentHandNumber)
     }
+    checkWinnerHand()
 }
 
 //The metacharacter \d search for digits, which are also numbers. The match() method uses regular expressions to retrieve it results. When used the match() with \d, it returns the number
 
 
-// function checkWinnerHand(){
-//     if (playerOneDeck[0][0])
-// }
+function checkWinnerHand(){
+    if (playerOneCurrentHandNumber > playerTwoCurrentHandNumber){
+        console.log(" player 1s hand")
+        playerOneDeck.push(playerOneDeck[0])
+        playerOneDeck.push(playerTwoDeck[0])
+        playerOneDeck.splice(0,1)
+        playerTwoDeck.splice(0,1)
+        return 
+    }
+    if (playerOneCurrentHandNumber < playerTwoCurrentHandNumber){
+        console.log(" player 2s hand")
+        playerTwoDeck.push(playerOneDeck[0])
+        playerTwoDeck.push(playerTwoDeck[0])
+        playerOneDeck.splice(0,1)
+        playerTwoDeck.splice(0,1)
+        return 
+    }
+    if (playerOneCurrentHandNumber === playerTwoCurrentHandNumber){
+        console.log("War")
+    }
+    console.log(playerOneDeck)
+    console.log(playerTwoDeck)
+}
