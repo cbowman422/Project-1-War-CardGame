@@ -2,7 +2,7 @@ console.log("welcome")
 
 
 const cardsObject = {
-    suit: ['&#9824;','&#9827;', '&#9829;', '&#9830;'],
+    suit: [' &#9824;',' &#9827;', ' &#9829;', ' &#9830;'],
     value: [2,3,4,5,6,7,8,9,10],
     faceValue: ['J', 'Q', 'K', 'A'],
 }
@@ -57,7 +57,6 @@ let currentIndex = cardDeckArray.length, randomIndex;
         currentIndex--;
         [cardDeckArray[currentIndex], cardDeckArray[randomIndex]] = [cardDeckArray[randomIndex], cardDeckArray[currentIndex]];
     }
-    console.log(cardDeckArray)
     return cardDeckArray
 }
 
@@ -65,10 +64,21 @@ let currentIndex = cardDeckArray.length, randomIndex;
 function buttonDrawClick() {
     document.querySelector('#playerOneHand').innerHTML = playerOneDeck[0];
     document.querySelector('#playerTwoHand').innerHTML = playerTwoDeck[0];
- 
+    console.log(playerOneDeck[0][0] + playerOneDeck[0][1])
+    if (playerOneDeck[0][0] === "1" || playerOneDeck[0][0] === "2" || playerOneDeck[0][0] === "3" || playerOneDeck[0][0] === "4" || playerOneDeck[0][0] === "5" || playerOneDeck[0][0] === "6" || playerOneDeck[0][0] === "7" || playerOneDeck[0][0] === "8" || playerOneDeck[0][0] === "9"){
+        playerOneCurrentHand = playerOneDeck[0].match(/\d+/)
+        console.log(typeof playerOneCurrentHand[0])
+    }
+    if(playerOneDeck[0][0] === "J"){
+        console.log("boom")
+
+    }
     
 }
 
-function checkWinnerHand(){
+//The metacharacter \d search for digits, which are also numbers. The match() method uses regular expressions to retrieve it results. When used the match() with \d, it returns the number
 
-}
+
+// function checkWinnerHand(){
+//     if (playerOneDeck[0][0])
+// }
