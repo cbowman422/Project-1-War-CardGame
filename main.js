@@ -135,6 +135,8 @@ function checkWinnerHand(){
     }
     if (playerOneCurrentHandNumber === playerTwoCurrentHandNumber){
         console.log("War")
+        playerOneDeckWarHand = playerOneDeck[4];
+        playerTwoDeckWarHand = playerTwoDeck[4];
         warExecution()
     }
     console.log(playerOneDeck)
@@ -142,6 +144,12 @@ function checkWinnerHand(){
 }
 
 function warExecution(){
+    buttonDraw.removeEventListener('click', buttonDrawClick);
+    setInterval( () => {
+        document.querySelector('#playerOneHand').innerHTML = "war! " + playerOneDeckWarHand;
+        document.querySelector('#playerTwoHand').innerHTML = "war! " + playerTwoDeckWarHand;
+        buttonDraw.addEventListener('click', buttonDrawClick);
+    }, 1000);
     if (playerOneDeck[4][0] === "1" || playerOneDeck[4][0] === "2" || playerOneDeck[4][0] === "3" || playerOneDeck[4][0] === "4" || playerOneDeck[4][0] === "5" || playerOneDeck[4][0] === "6" || playerOneDeck[4][0] === "7" || playerOneDeck[4][0] === "8" || playerOneDeck[4][0] === "9"){
         playerOneCurrentHand = playerOneDeck[4].match(/\d+/)
         playerOneCurrentHandNumber = Number(playerOneCurrentHand)
@@ -189,6 +197,7 @@ function warExecution(){
 }
 
 function checkWinnerHandWar(){
+  
     if (playerOneCurrentHandNumber > playerTwoCurrentHandNumber){
         console.log(" player 1s hand war")
         playerOneDeck.push(playerOneDeck[0], playerOneDeck[1], playerOneDeck[2], playerOneDeck[3], playerOneDeck[4])
@@ -213,6 +222,9 @@ function checkWinnerHandWar(){
         playerTwoDeck.splice(0,5)
         warExecution()
     }
- 
+
 }
 
+function shuffleCounter(){
+
+}
