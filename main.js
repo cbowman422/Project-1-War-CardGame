@@ -64,16 +64,50 @@ let currentIndex = cardDeckArray.length, randomIndex;
 function buttonDrawClick() {
     document.querySelector('#playerOneHand').innerHTML = playerOneDeck[0];
     document.querySelector('#playerTwoHand').innerHTML = playerTwoDeck[0];
-    console.log(playerOneDeck[0][0] + playerOneDeck[0][1])
+    // player 1
     if (playerOneDeck[0][0] === "1" || playerOneDeck[0][0] === "2" || playerOneDeck[0][0] === "3" || playerOneDeck[0][0] === "4" || playerOneDeck[0][0] === "5" || playerOneDeck[0][0] === "6" || playerOneDeck[0][0] === "7" || playerOneDeck[0][0] === "8" || playerOneDeck[0][0] === "9"){
         playerOneCurrentHand = playerOneDeck[0].match(/\d+/)
-        console.log(typeof playerOneCurrentHand[0])
+        playerOneCurrentHandNumber = Number(playerOneCurrentHand)
+        console.log(playerOneCurrentHandNumber)
     }
     if(playerOneDeck[0][0] === "J"){
-        console.log("boom")
-
+        playerOneCurrentHandNumber = 11;
+        console.log(playerOneCurrentHandNumber)
     }
-    
+    if(playerOneDeck[0][0] === "Q"){
+        playerOneCurrentHandNumber = 12;
+        console.log(playerOneCurrentHandNumber)
+    }
+    if(playerOneDeck[0][0] === "K"){
+        playerOneCurrentHandNumber = 13;
+        console.log(playerOneCurrentHandNumber)
+    }
+    if(playerOneDeck[0][0] === "A"){
+        playerOneCurrentHandNumber = 14;
+        console.log(playerOneCurrentHandNumber)
+    }
+    // player 2
+    if (playerTwoDeck[0][0] === "1" || playerTwoDeck[0][0] === "2" || playerTwoDeck[0][0] === "3" || playerTwoDeck[0][0] === "4" || playerTwoDeck[0][0] === "5" || playerTwoDeck[0][0] === "6" || playerTwoDeck[0][0] === "7" || playerTwoDeck[0][0] === "8" || playerTwoDeck[0][0] === "9"){
+        playerTwoCurrentHand = playerTwoDeck[0].match(/\d+/)
+        playerTwoCurrentHandNumber = Number(playerTwoCurrentHand)
+        console.log(playerTwoCurrentHandNumber)
+    }
+    if(playerTwoDeck[0][0] === "J"){
+        playerTwoCurrentHandNumber = 11;
+        console.log(playerTwoCurrentHandNumber)
+    }
+    if(playerTwoDeck[0][0] === "Q"){
+        playerTwoCurrentHandNumber = 12;
+        console.log(playerTwoCurrentHandNumber)
+    }
+    if(playerTwoDeck[0][0] === "K"){
+        playerTwoCurrentHandNumber = 13;
+        console.log(playerTwoCurrentHandNumber)
+    }
+    if(playerTwoDeck[0][0] === "A"){
+        playerTwoCurrentHandNumber = 14;
+        console.log(playerTwoCurrentHandNumber)
+    }
 }
 
 //The metacharacter \d search for digits, which are also numbers. The match() method uses regular expressions to retrieve it results. When used the match() with \d, it returns the number
