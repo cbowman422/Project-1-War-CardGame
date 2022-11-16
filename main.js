@@ -26,7 +26,7 @@ let playerOneDeck = []
 let playerTwoDeck = []
 let buttonDraw = document.querySelector('#buttonDraw')
 let buttonStart = document.querySelector('#buttonStart')
-
+let warExtraArray = [];
 buttonDraw.addEventListener('click', buttonDrawClick);
 buttonStart.addEventListener('click', buttonStartClick);
 
@@ -58,6 +58,7 @@ let currentIndex = cardDeckArray.length, randomIndex;
 }
 
 function buttonDrawClick() {
+    warExtraArray = [];
     document.querySelector('#playerOneHand').innerHTML = playerOneDeck[0];
     document.querySelector('#playerTwoHand').innerHTML = playerTwoDeck[0];
     // player 1
@@ -112,6 +113,9 @@ function buttonDrawClick() {
 function checkWinnerHand(){
     if (playerOneCurrentHandNumber > playerTwoCurrentHandNumber){
         console.log(" player 1s hand")
+        if(warExtraArray !== Array(0)){
+        playerOneDeck.push(warExtraArray)
+        }
         playerOneDeck.push(playerOneDeck[0])
         playerOneDeck.push(playerTwoDeck[0])
         playerOneDeck.splice(0,1)
@@ -120,6 +124,9 @@ function checkWinnerHand(){
     }
     if (playerOneCurrentHandNumber < playerTwoCurrentHandNumber){
         console.log(" player 2s hand")
+        if(warExtraArray !== Array(0)){
+            playerTwoDeck.push(warExtraArray)
+            }
         playerTwoDeck.push(playerOneDeck[0])
         playerTwoDeck.push(playerTwoDeck[0])
         playerOneDeck.splice(0,1)
@@ -200,7 +207,12 @@ function checkWinnerHandWar(){
     }
     if (playerOneCurrentHandNumber === playerTwoCurrentHandNumber){
         console.log("War 2")
+        warExtraArray.push(playerOneDeck[0], playerOneDeck[1], playerOneDeck[2], playerOneDeck[3])
+        warExtraArray.push(playerTwoDeck[0], playerTwoDeck[1], playerTwoDeck[2], playerTwoDeck[3])
+        playerOneDeck.splice(0,5)
+        playerTwoDeck.splice(0,5)
         warExecution()
     }
  
 }
+
