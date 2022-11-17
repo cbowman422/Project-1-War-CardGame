@@ -12,12 +12,12 @@ let playerTwoDeck = [];
 let buttonDraw = document.querySelector('#buttonDraw')
 let buttonStart = document.querySelector('#buttonStart')
 let warExtraArray = [];
-buttonDraw.addEventListener('click', buttonDrawClick);
 buttonStart.addEventListener('click', buttonStartClick);
 
 
 function buttonStartClick(){
     dealDeck()
+    buttonDraw.addEventListener('click', buttonDrawClick);
 }
 
 function dealDeck() {
@@ -46,7 +46,6 @@ function cardDeck() {
     }
     return cardDeckArray
 }
-
 
 function shuffleDeck() {
 let currentIndex = cardDeckArray.length, randomIndex;
@@ -110,13 +109,14 @@ function buttonDrawClick() {
     }
     checkWinnerHand()
     shuffleCounter()
+    checkWinnerGame()
 }
 
 //The metacharacter \d search for digits, which are also numbers. The match() method uses regular expressions to retrieve it results. When used the match() with \d, it returns the number
 
 function checkWinnerHand(){
     if (playerOneCurrentHandNumber > playerTwoCurrentHandNumber){
-        console.log(" player 1s hand")
+        document.querySelector('#displayHand').innerHTML = "Player 1 wins this round";
         if(warExtraArray.length !== 0){
         playerOneDeck.push(warExtraArray)
         }
@@ -127,7 +127,7 @@ function checkWinnerHand(){
         
     }
     if (playerOneCurrentHandNumber < playerTwoCurrentHandNumber){
-        console.log(" player 2s hand")
+        document.querySelector('#displayHand').innerHTML = "Player 2 wins this round";
         if(warExtraArray.length !== 0){
             playerTwoDeck.push(warExtraArray)
             }
@@ -200,34 +200,6 @@ function warExecution(){
     checkWinnerHandWar()
 }
 
-function checkWinnerHandWar(){
-  
-    if (playerOneCurrentHandNumber > playerTwoCurrentHandNumber){
-        console.log(" player 1s hand war")
-        playerOneDeck.push(playerOneDeck[0], playerOneDeck[1], playerOneDeck[2], playerOneDeck[3], playerOneDeck[4])
-        playerOneDeck.push(playerTwoDeck[0], playerTwoDeck[1], playerTwoDeck[2], playerTwoDeck[3], playerTwoDeck[4])
-        playerOneDeck.splice(0,5)
-        playerTwoDeck.splice(0,5)
-        
-    }
-    if (playerOneCurrentHandNumber < playerTwoCurrentHandNumber){
-        console.log(" player 2s hand war")
-        playerTwoDeck.push(playerOneDeck[0], playerOneDeck[1], playerOneDeck[2], playerOneDeck[3])
-        playerTwoDeck.push(playerTwoDeck[0], playerTwoDeck[1], playerTwoDeck[2], playerTwoDeck[3])
-        playerOneDeck.splice(0,5)
-        playerTwoDeck.splice(0,5)
-        
-    }
-    if (playerOneCurrentHandNumber === playerTwoCurrentHandNumber){
-        console.log("War 2")
-        warExtraArray.push(playerOneDeck[0], playerOneDeck[1], playerOneDeck[2], playerOneDeck[3])
-        warExtraArray.push(playerTwoDeck[0], playerTwoDeck[1], playerTwoDeck[2], playerTwoDeck[3])
-        playerOneDeck.splice(0,5)
-        playerTwoDeck.splice(0,5)
-        warExecution()
-    }
-
-}
 
 let playerDeckLength = 26;
 
@@ -239,12 +211,40 @@ function shuffleCounter(){
         shuffleDeckPlayerTwo()
         return playerDeckLength = 26
     } else {
-
+        
     }
     console.log(playerDeckLength)
     return
 }
 
+function checkWinnerHandWar(){
+  
+    if (playerOneCurrentHandNumber > playerTwoCurrentHandNumber){
+        document.querySelector('#displayHand').innerHTML = "Player 1 wins war!"
+        playerOneDeck.push(playerOneDeck[0], playerOneDeck[1], playerOneDeck[2], playerOneDeck[3], playerOneDeck[4])
+        playerOneDeck.push(playerTwoDeck[0], playerTwoDeck[1], playerTwoDeck[2], playerTwoDeck[3], playerTwoDeck[4])
+        playerOneDeck.splice(0,5)
+        playerTwoDeck.splice(0,5)
+        
+    }
+    if (playerOneCurrentHandNumber < playerTwoCurrentHandNumber){
+        document.querySelector('#displayHand').innerHTML = "Player 2 wins war!"
+        playerTwoDeck.push(playerOneDeck[0], playerOneDeck[1], playerOneDeck[2], playerOneDeck[3], playerOneDeck[4])
+        playerTwoDeck.push(playerTwoDeck[0], playerTwoDeck[1], playerTwoDeck[2], playerTwoDeck[3], playerTwoDeck[4])
+        playerOneDeck.splice(0,5)
+        playerTwoDeck.splice(0,5)
+        
+    }
+    if (playerOneCurrentHandNumber === playerTwoCurrentHandNumber){
+        console.log("War 2")
+        warExtraArray.push(playerOneDeck[0], playerOneDeck[1], playerOneDeck[2], playerOneDeck[3], playerOneDeck[4])
+        warExtraArray.push(playerTwoDeck[0], playerTwoDeck[1], playerTwoDeck[2], playerTwoDeck[3], playerTwoDeck[4])
+        playerOneDeck.splice(0,5)
+        playerTwoDeck.splice(0,5)
+        warExecution()
+    }
+
+}
 
 function shuffleDeckPlayerOne() {
     let currentIndex = playerOneDeck.length, randomIndex;
@@ -254,7 +254,7 @@ function shuffleDeckPlayerOne() {
             [playerOneDeck[currentIndex], playerOneDeck[randomIndex]] = [playerOneDeck[randomIndex], playerOneDeck[currentIndex]];
         }
         return playerOneDeck
-    }
+}
 
 
 function shuffleDeckPlayerTwo() {
@@ -265,4 +265,22 @@ function shuffleDeckPlayerTwo() {
             [playerTwoDeck[currentIndex], playerTwoDeck[randomIndex]] = [playerTwoDeck[randomIndex], playerTwoDeck[currentIndex]];
         }
         return playerTwoDeck
+}
+
+function checkWinnerGame(){
+    if (playerOneDeck.length === 0){
+        console.log("player 2 wins")
+        cardDeckArray = [];
+        playerOneDeck = [];
+        playerTwoDeck = [];
+        buttonDraw.removeEventListener('click', buttonDrawClick);
     }
+    if (playerTwoDeck.length === 0){
+        console.log("player 1 wins")
+        cardDeckArray = [];
+        playerOneDeck = [];
+        playerTwoDeck = [];
+        buttonDraw.removeEventListener('click', buttonDrawClick);
+    }
+    return
+}
