@@ -148,13 +148,6 @@ function checkWinnerHand(){
 
 function warExecution(){
 
-    if(warExtraArray.length !== 0){
-        playerOneDeck.push(warExtraArray)
-    }
-    if(warExtraArray.length !== 0){
-        playerTwoDeck.push(warExtraArray)
-    }
-
     buttonDraw.removeEventListener('click', buttonDrawClick);
     setTimeout( () => {
         document.querySelector('#playerOneHand').innerHTML = "war! " + playerOneDeckWarHand;
@@ -227,6 +220,10 @@ function shuffleCounter(){
 function checkWinnerHandWar(){
   
     if (playerOneCurrentHandNumber > playerTwoCurrentHandNumber){
+        if(warExtraArray.length !== 0){
+            playerOneDeck.push(warExtraArray)
+        }
+       
         document.querySelector('#displayHand').innerHTML = "Player 1 wins war!"
         playerOneDeck.push(playerOneDeck[0], playerOneDeck[1], playerOneDeck[2], playerOneDeck[3], playerOneDeck[4])
         playerOneDeck.push(playerTwoDeck[0], playerTwoDeck[1], playerTwoDeck[2], playerTwoDeck[3], playerTwoDeck[4])
@@ -235,6 +232,10 @@ function checkWinnerHandWar(){
         
     }
     if (playerOneCurrentHandNumber < playerTwoCurrentHandNumber){
+        if(warExtraArray.length !== 0){
+            playerTwoDeck.push(warExtraArray)
+        }
+
         document.querySelector('#displayHand').innerHTML = "Player 2 wins war!"
         playerTwoDeck.push(playerOneDeck[0], playerOneDeck[1], playerOneDeck[2], playerOneDeck[3], playerOneDeck[4])
         playerTwoDeck.push(playerTwoDeck[0], playerTwoDeck[1], playerTwoDeck[2], playerTwoDeck[3], playerTwoDeck[4])
