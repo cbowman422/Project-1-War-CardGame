@@ -58,7 +58,6 @@ let currentIndex = cardDeckArray.length, randomIndex;
 }
 
 function buttonDrawClick() {
-
     console.log()
     warExtraArray = [];
     document.querySelector('#playerOneHand').innerHTML = playerOneDeck[0];
@@ -117,9 +116,9 @@ function buttonDrawClick() {
 function checkWinnerHand(){
     if (playerOneCurrentHandNumber > playerTwoCurrentHandNumber){
         document.querySelector('#displayHand').innerHTML = "Player 1 wins this round";
-        if(warExtraArray.length !== 0){
-        playerOneDeck.push(warExtraArray)
-        }
+        // if(warExtraArray.length !== 0){
+        // playerOneDeck.push(warExtraArray)
+        // }
         playerOneDeck.push(playerOneDeck[0])
         playerOneDeck.push(playerTwoDeck[0])
         playerOneDeck.splice(0,1)
@@ -128,9 +127,9 @@ function checkWinnerHand(){
     }
     if (playerOneCurrentHandNumber < playerTwoCurrentHandNumber){
         document.querySelector('#displayHand').innerHTML = "Player 2 wins this round";
-        if(warExtraArray.length !== 0){
-            playerTwoDeck.push(warExtraArray)
-            }
+        // if(warExtraArray.length !== 0){
+        //     playerTwoDeck.push(warExtraArray)
+        //     }
         playerTwoDeck.push(playerOneDeck[0])
         playerTwoDeck.push(playerTwoDeck[0])
         playerOneDeck.splice(0,1)
@@ -148,6 +147,14 @@ function checkWinnerHand(){
 }
 
 function warExecution(){
+
+    if(warExtraArray.length !== 0){
+        playerOneDeck.push(warExtraArray)
+    }
+    if(warExtraArray.length !== 0){
+        playerTwoDeck.push(warExtraArray)
+    }
+
     buttonDraw.removeEventListener('click', buttonDrawClick);
     setTimeout( () => {
         document.querySelector('#playerOneHand').innerHTML = "war! " + playerOneDeckWarHand;
@@ -241,6 +248,7 @@ function checkWinnerHandWar(){
         warExtraArray.push(playerTwoDeck[0], playerTwoDeck[1], playerTwoDeck[2], playerTwoDeck[3], playerTwoDeck[4])
         playerOneDeck.splice(0,5)
         playerTwoDeck.splice(0,5)
+        console.log(warExtraArray)
         warExecution()
     }
 
