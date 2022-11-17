@@ -200,6 +200,55 @@ function warExecution(){
         playerTwoCurrentHandNumber = 14;
         console.log(playerTwoCurrentHandNumber)
     }
+    //players if less than 5 cards during war
+    if (playerOneDeck.length<5){
+        if (playerOneDeck[playerOneDeck.length-1][0] === "1" || playerOneDeck[playerOneDeck.length-1][0] === "2" || playerOneDeck[playerOneDeck.length-1][0] === "3" || playerOneDeck[playerOneDeck.length-1][0] === "4" || playerOneDeck[playerOneDeck.length-1][0] === "5" || playerOneDeck[playerOneDeck.length-1][0] === "6" || playerOneDeck[playerOneDeck.length-1][0] === "7" || playerOneDeck[playerOneDeck.length-1][0] === "8" || playerOneDeck[playerOneDeck.length-1][0] === "9"){
+            playerOneCurrentHand = playerOneDeck[playerOneDeck.length-1].match(/\d+/)
+            playerOneCurrentHandNumber = Number(playerOneCurrentHand)
+            console.log(playerOneCurrentHandNumber)
+        }
+        if(playerOneDeck[playerOneDeck.length-1][0] === "J"){
+            playerOneCurrentHandNumber = 11;
+            console.log(playerOneCurrentHandNumber)
+        }
+        if(playerOneDeck[playerOneDeck.length-1][0] === "Q"){
+            playerOneCurrentHandNumber = 12;
+            console.log(playerOneCurrentHandNumber)
+        }
+        if(playerOneDeck[playerOneDeck.length-1][0] === "K"){
+            playerOneCurrentHandNumber = 13;
+            console.log(playerOneCurrentHandNumber)
+        }
+        if(playerOneDeck[playerOneDeck.length-1][0] === "A"){
+            playerOneCurrentHandNumber = 14;
+            console.log(playerOneCurrentHandNumber)
+        }
+        }
+        
+    if (playerTwoDeck.length<5){
+        if (playerTwoDeck[playerTwoDeck.length-1][0] === "1" || playerTwoDeck[playerTwoDeck.length-1][0] === "2" || playerTwoDeck[playerTwoDeck.length-1][0] === "3" || playerTwoDeck[playerTwoDeck.length-1][0] === "4" || playerTwoDeck[playerTwoDeck.length-1][0] === "5" || playerTwoDeck[playerTwoDeck.length-1][0] === "6" || playerTwoDeck[playerTwoDeck.length-1][0] === "7" || playerTwoDeck[playerTwoDeck.length-1][0] === "8" || playerTwoDeck[playerTwoDeck.length-1][0] === "9"){
+            playerTwoCurrentHand = playerTwoDeck[playerTwoDeck.length-1].match(/\d+/)
+            playerTwoCurrentHandNumber = Number(playerTwoCurrentHand)
+            console.log(playerTwoCurrentHandNumber)
+        }
+        if(playerTwoDeck[playerTwoDeck.length-1][0] === "J"){
+            playerTwoCurrentHandNumber = 11;
+            console.log(playerTwoCurrentHandNumber)
+        }
+        if(playerTwoDeck[playerTwoDeck.length-1][0] === "Q"){
+            playerTwoCurrentHandNumber = 12;
+            console.log(playerTwoCurrentHandNumber)
+        }
+        if(playerTwoDeck[playerTwoDeck.length-1][0] === "K"){
+            playerTwoCurrentHandNumber = 13;
+            console.log(playerTwoCurrentHandNumber)
+        }
+        if(playerTwoDeck[playerTwoDeck.length-1][0] === "A"){
+            playerTwoCurrentHandNumber = 14;
+            console.log(playerTwoCurrentHandNumber)
+        }
+        }
+
     checkWinnerHandWar()
     displayDeck()
     shuffleCounter()
@@ -311,3 +360,5 @@ function displayDeck(){
     document.querySelector('#playerOneCardsLeft').innerHTML = "Player 1 deck count: " + playerOneDeck.length;
     document.querySelector('#playerTwoCardsLeft').innerHTML = "Player 2 deck count: " + playerTwoDeck.length;
 }
+
+
