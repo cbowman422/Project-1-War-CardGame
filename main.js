@@ -19,6 +19,7 @@ function buttonStartClick(){
     document.querySelector('#buttonStart').style.background = "rgba(0,50,0,0.5)";
     dealDeck()
     buttonDraw.addEventListener('click', buttonDrawClick);
+    buttonStart.removeEventListener('click', buttonStartClick);
 }
 
 function dealDeck() {
