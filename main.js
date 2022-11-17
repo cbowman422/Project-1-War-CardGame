@@ -16,6 +16,7 @@ buttonStart.addEventListener('click', buttonStartClick);
 
 
 function buttonStartClick(){
+    document.querySelector('#buttonStart').style.background = "rgba(0,50,0,0.5)";
     dealDeck()
     buttonDraw.addEventListener('click', buttonDrawClick);
 }
@@ -283,6 +284,7 @@ function checkWinnerGame(){
         playerOneDeck = [];
         playerTwoDeck = [];
         buttonDraw.removeEventListener('click', buttonDrawClick);
+        document.querySelector('#buttonStart').style.background = "";
     }
     if (playerTwoDeck.length === 0){
         console.log("player 1 wins")
@@ -290,6 +292,7 @@ function checkWinnerGame(){
         playerOneDeck = [];
         playerTwoDeck = [];
         buttonDraw.removeEventListener('click', buttonDrawClick);
+        document.querySelector('#buttonStart').style.background = "";
     }
     return
 }
