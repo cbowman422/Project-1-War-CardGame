@@ -59,6 +59,8 @@ let currentIndex = cardDeckArray.length, randomIndex;
 }
 
 function buttonDrawClick() {
+
+    console.log()
     warExtraArray = [];
     document.querySelector('#playerOneHand').innerHTML = playerOneDeck[0];
     document.querySelector('#playerTwoHand').innerHTML = playerTwoDeck[0];
@@ -107,6 +109,7 @@ function buttonDrawClick() {
         console.log(playerTwoCurrentHandNumber)
     }
     checkWinnerHand()
+    shuffleCounter()
 }
 
 //The metacharacter \d search for digits, which are also numbers. The match() method uses regular expressions to retrieve it results. When used the match() with \d, it returns the number
@@ -226,8 +229,40 @@ function checkWinnerHandWar(){
 
 }
 
-function shuffleCounterPlayerOne(){
-    let playerOneDeckLength = playerOneDeck.length
+let playerDeckLength = 26;
 
 
+function shuffleCounter(){
+    playerDeckLength--;
+    if (playerDeckLength === 0){
+        shuffleDeckPlayerOne()
+        shuffleDeckPlayerTwo()
+        return playerDeckLength = 26
+    } else {
+
+    }
+    console.log(playerDeckLength)
+    return
 }
+
+
+function shuffleDeckPlayerOne() {
+    let currentIndex = playerOneDeck.length, randomIndex;
+        while (currentIndex !==0){
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+            [playerOneDeck[currentIndex], playerOneDeck[randomIndex]] = [playerOneDeck[randomIndex], playerOneDeck[currentIndex]];
+        }
+        return playerOneDeck
+    }
+
+
+function shuffleDeckPlayerTwo() {
+    let currentIndex = playerTwoDeck.length, randomIndex;
+        while (currentIndex !==0){
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+            [playerTwoDeck[currentIndex], playerTwoDeck[randomIndex]] = [playerTwoDeck[randomIndex], playerTwoDeck[currentIndex]];
+        }
+        return playerTwoDeck
+    }
