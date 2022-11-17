@@ -156,7 +156,7 @@ function warExecution(){
         document.querySelector('#playerOneHand').innerHTML = "war! " + playerOneDeckWarHand;
         document.querySelector('#playerTwoHand').innerHTML = "war! " + playerTwoDeckWarHand;
         buttonDraw.addEventListener('click', buttonDrawClick);
-    }, 1000);
+    }, 2000);
     if (playerOneDeck[4][0] === "1" || playerOneDeck[4][0] === "2" || playerOneDeck[4][0] === "3" || playerOneDeck[4][0] === "4" || playerOneDeck[4][0] === "5" || playerOneDeck[4][0] === "6" || playerOneDeck[4][0] === "7" || playerOneDeck[4][0] === "8" || playerOneDeck[4][0] === "9"){
         playerOneCurrentHand = playerOneDeck[4].match(/\d+/)
         playerOneCurrentHandNumber = Number(playerOneCurrentHand)
