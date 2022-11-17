@@ -226,10 +226,12 @@ function checkWinnerHandWar(){
   
     if (playerOneCurrentHandNumber > playerTwoCurrentHandNumber){
         if(warExtraArray.length !== 0){
-            playerOneDeck.push(warExtraArray)
+            for (x = 0; x < warExtraArray.length; x++){
+            playerOneDeck.push(warExtraArray[x])
+            }
         }
        
-        document.querySelector('#displayHand').innerHTML = "Player 1 wins war!"
+        document.querySelector('#displayHand').innerHTML = "Player 1 wins war round!"
         playerOneDeck.push(playerOneDeck[0], playerOneDeck[1], playerOneDeck[2], playerOneDeck[3], playerOneDeck[4])
         playerOneDeck.push(playerTwoDeck[0], playerTwoDeck[1], playerTwoDeck[2], playerTwoDeck[3], playerTwoDeck[4])
         playerOneDeck.splice(0,5)
@@ -238,10 +240,12 @@ function checkWinnerHandWar(){
     }
     if (playerOneCurrentHandNumber < playerTwoCurrentHandNumber){
         if(warExtraArray.length !== 0){
-            playerTwoDeck.push(warExtraArray)
+            for (x = 0; x < warExtraArray.length; x++){
+            playerTwoDeck.push(warExtraArray[x])
+            }
         }
 
-        document.querySelector('#displayHand').innerHTML = "Player 2 wins war!"
+        document.querySelector('#displayHand').innerHTML = "Player 2 wins war round!"
         playerTwoDeck.push(playerOneDeck[0], playerOneDeck[1], playerOneDeck[2], playerOneDeck[3], playerOneDeck[4])
         playerTwoDeck.push(playerTwoDeck[0], playerTwoDeck[1], playerTwoDeck[2], playerTwoDeck[3], playerTwoDeck[4])
         playerOneDeck.splice(0,5)
