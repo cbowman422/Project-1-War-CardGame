@@ -60,7 +60,7 @@ let currentIndex = cardDeckArray.length, randomIndex;
 }
 
 function buttonDrawClick() {
-    console.log()
+    
     warExtraArray = [];
     document.querySelector('#playerOneHand').innerHTML = playerOneDeck[0];
     document.querySelector('#playerTwoHand').innerHTML = playerTwoDeck[0];
@@ -110,6 +110,7 @@ function buttonDrawClick() {
     }
     checkWinnerHand()
     shuffleCounter()
+    displayDeck()
     checkWinnerGame()
 }
 
@@ -200,6 +201,8 @@ function warExecution(){
         console.log(playerTwoCurrentHandNumber)
     }
     checkWinnerHandWar()
+    displayDeck()
+    shuffleCounter()
 }
 
 
@@ -280,20 +283,27 @@ function shuffleDeckPlayerTwo() {
 
 function checkWinnerGame(){
     if (playerOneDeck.length === 0){
-        console.log("player 2 wins")
+        document.querySelector('#displayHand').innerHTML = "Player 2 wins the War!";
         cardDeckArray = [];
         playerOneDeck = [];
         playerTwoDeck = [];
         buttonDraw.removeEventListener('click', buttonDrawClick);
+        buttonStart.addEventListener('click', buttonStartClick);
         document.querySelector('#buttonStart').style.background = "";
     }
     if (playerTwoDeck.length === 0){
-        console.log("player 1 wins")
+        document.querySelector('#displayHand').innerHTML = "Player 1 wins the War!";
         cardDeckArray = [];
         playerOneDeck = [];
         playerTwoDeck = [];
         buttonDraw.removeEventListener('click', buttonDrawClick);
+        buttonStart.addEventListener('click', buttonStartClick);
         document.querySelector('#buttonStart').style.background = "";
     }
     return
+}
+
+function displayDeck(){
+    document.querySelector('#playerOneCardsLeft').innerHTML = "Player 1 deck count: " + playerOneDeck.length;
+    document.querySelector('#playerTwoCardsLeft').innerHTML = "Player 2 deck count: " + playerTwoDeck.length;
 }
