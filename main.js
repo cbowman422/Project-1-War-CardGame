@@ -134,6 +134,7 @@ function warExecution(){
         document.querySelector('#playerTwoHand').innerHTML = playerTwoDeckWarHand;
         buttonDraw.addEventListener('click', buttonDrawClick);
     }, 2000);
+if (playerOneDeck.length>5){
     if (playerOneDeck[4][0] === "1" || playerOneDeck[4][0] === "2" || playerOneDeck[4][0] === "3" || playerOneDeck[4][0] === "4" || playerOneDeck[4][0] === "5" || playerOneDeck[4][0] === "6" || playerOneDeck[4][0] === "7" || playerOneDeck[4][0] === "8" || playerOneDeck[4][0] === "9"){
         playerOneCurrentHand = playerOneDeck[4].match(/\d+/)
         playerOneCurrentHandNumber = Number(playerOneCurrentHand)
@@ -150,7 +151,9 @@ function warExecution(){
     if(playerOneDeck[4][0] === "A"){
         playerOneCurrentHandNumber = 14;
     }
+}
     // player 2
+if (playerTwoDeck.length>5){
     if (playerTwoDeck[4][0] === "1" || playerTwoDeck[4][0] === "2" || playerTwoDeck[4][0] === "3" || playerTwoDeck[4][0] === "4" || playerTwoDeck[4][0] === "5" || playerTwoDeck[4][0] === "6" || playerTwoDeck[4][0] === "7" || playerTwoDeck[4][0] === "8" || playerTwoDeck[4][0] === "9"){
         playerTwoCurrentHand = playerTwoDeck[4].match(/\d+/)
         playerTwoCurrentHandNumber = Number(playerTwoCurrentHand)
@@ -167,6 +170,7 @@ function warExecution(){
     if(playerTwoDeck[4][0] === "A"){
         playerTwoCurrentHandNumber = 14;
     }
+}
     //players if less than 5 cards during war
     if (playerOneDeck.length<5){
         if (playerOneDeck[playerOneDeck.length-1][0] === "1" || playerOneDeck[playerOneDeck.length-1][0] === "2" || playerOneDeck[playerOneDeck.length-1][0] === "3" || playerOneDeck[playerOneDeck.length-1][0] === "4" || playerOneDeck[playerOneDeck.length-1][0] === "5" || playerOneDeck[playerOneDeck.length-1][0] === "6" || playerOneDeck[playerOneDeck.length-1][0] === "7" || playerOneDeck[playerOneDeck.length-1][0] === "8" || playerOneDeck[playerOneDeck.length-1][0] === "9"){
@@ -264,6 +268,7 @@ function checkWinnerHandWar(){
     }
     if (playerOneDeck < 5 && playerOneCurrentHandNumber < playerTwoCurrentHandNumber ){
         document.querySelector('#displayHand').innerHTML = "</strong> Player 2 </strong> WINS the </strong> WAR </strong>!";
+        document.querySelector('#playerOneHand').innerHTML = "Lost"
         cardDeckArray = [];
         playerOneDeck = [];
         playerTwoDeck = [];
@@ -274,6 +279,7 @@ function checkWinnerHandWar(){
     }
     if (playerTwoDeck < 5 && playerTwoCurrentHandNumber < playerOneCurrentHandNumber ){
         document.querySelector('#displayHand').innerHTML = "</strong> Player 1 </strong> WINS the </strong> WAR </strong>!";
+        document.querySelector('#playerTwoHand').innerHTML = "Lost"
         cardDeckArray = [];
         playerOneDeck = [];
         playerTwoDeck = [];
