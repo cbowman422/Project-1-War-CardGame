@@ -3,7 +3,7 @@ console.log("welcome")
 const cardsObject = {
     suit: [' &#9824;',' &#9827;', ' &#9829;', ' &#9830;'],
     value: [2,3,4,5,6,7,8,9,10],
-    faceValue: ['J', 'Q', 'K', 'A'],
+    faceValue: [ 'J', 'Q', 'K', 'A'],
 }
 
 let cardDeckArray = []
@@ -118,7 +118,7 @@ function buttonDrawClick() {
 
 function checkWinnerHand(){
     if (playerOneCurrentHandNumber > playerTwoCurrentHandNumber){
-        document.querySelector('#displayHand').innerHTML = "Player 1 wins this round";
+        document.querySelector('#displayHand').innerHTML = "</strong> Player 1 </strong> WINS this round";
         // if(warExtraArray.length !== 0){
         // playerOneDeck.push(warExtraArray)
         // }
@@ -129,7 +129,7 @@ function checkWinnerHand(){
         
     }
     if (playerOneCurrentHandNumber < playerTwoCurrentHandNumber){
-        document.querySelector('#displayHand').innerHTML = "Player 2 wins this round";
+        document.querySelector('#displayHand').innerHTML = "</strong> Player 2 </strong> WINS this round";
         // if(warExtraArray.length !== 0){
         //     playerTwoDeck.push(warExtraArray)
         //     }
@@ -153,8 +153,8 @@ function warExecution(){
 
     buttonDraw.removeEventListener('click', buttonDrawClick);
     setTimeout( () => {
-        document.querySelector('#playerOneHand').innerHTML = "war! " + playerOneDeckWarHand;
-        document.querySelector('#playerTwoHand').innerHTML = "war! " + playerTwoDeckWarHand;
+        document.querySelector('#playerOneHand').innerHTML = playerOneDeckWarHand;
+        document.querySelector('#playerTwoHand').innerHTML = playerTwoDeckWarHand;
         buttonDraw.addEventListener('click', buttonDrawClick);
     }, 2000);
     if (playerOneDeck[4][0] === "1" || playerOneDeck[4][0] === "2" || playerOneDeck[4][0] === "3" || playerOneDeck[4][0] === "4" || playerOneDeck[4][0] === "5" || playerOneDeck[4][0] === "6" || playerOneDeck[4][0] === "7" || playerOneDeck[4][0] === "8" || playerOneDeck[4][0] === "9"){
@@ -280,7 +280,7 @@ function checkWinnerHandWar(){
             }
         }
        
-        document.querySelector('#displayHand').innerHTML = "Player 1 wins war round!"
+        document.querySelector('#displayHand').innerHTML = "Player 1 WINS WAR round!"
         playerOneDeck.push(playerOneDeck[0], playerOneDeck[1], playerOneDeck[2], playerOneDeck[3], playerOneDeck[4])
         playerOneDeck.push(playerTwoDeck[0], playerTwoDeck[1], playerTwoDeck[2], playerTwoDeck[3], playerTwoDeck[4])
         playerOneDeck.splice(0,5)
@@ -294,7 +294,7 @@ function checkWinnerHandWar(){
             }
         }
 
-        document.querySelector('#displayHand').innerHTML = "Player 2 wins war round!"
+        document.querySelector('#displayHand').innerHTML = "Player 2 WINS WAR round!"
         playerTwoDeck.push(playerOneDeck[0], playerOneDeck[1], playerOneDeck[2], playerOneDeck[3], playerOneDeck[4])
         playerTwoDeck.push(playerTwoDeck[0], playerTwoDeck[1], playerTwoDeck[2], playerTwoDeck[3], playerTwoDeck[4])
         playerOneDeck.splice(0,5)
@@ -336,7 +336,7 @@ function shuffleDeckPlayerTwo() {
 
 function checkWinnerGame(){
     if (playerOneDeck.length === 0){
-        document.querySelector('#displayHand').innerHTML = "Player 2 wins the War!";
+        document.querySelector('#displayHand').innerHTML = "</strong> Player 2 </strong> WINS the </strong> WAR </strong>!";
         cardDeckArray = [];
         playerOneDeck = [];
         playerTwoDeck = [];
@@ -345,7 +345,7 @@ function checkWinnerGame(){
         document.querySelector('#buttonStart').style.background = "";
     }
     if (playerTwoDeck.length === 0){
-        document.querySelector('#displayHand').innerHTML = "Player 1 wins the War!";
+        document.querySelector('#displayHand').innerHTML = "</strong> Player 1 </strong> WINS the </strong> WAR </strong>!";
         cardDeckArray = [];
         playerOneDeck = [];
         playerTwoDeck = [];
@@ -357,8 +357,8 @@ function checkWinnerGame(){
 }
 
 function displayDeck(){
-    document.querySelector('#playerOneCardsLeft').innerHTML = "Player 1 deck count: " + playerOneDeck.length;
-    document.querySelector('#playerTwoCardsLeft').innerHTML = "Player 2 deck count: " + playerTwoDeck.length;
+    document.querySelector('#playerOneCardsLeft').innerHTML = "<strong> Player 1 </strong> deck count: " + playerOneDeck.length;
+    document.querySelector('#playerTwoCardsLeft').innerHTML = "<strong> Player 2 </strong> deck count: " + playerTwoDeck.length;
 }
 
 
