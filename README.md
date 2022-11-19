@@ -40,4 +40,4 @@
 - have a reset button
 
 ## Game Frame
-![Game](image.jpg)
+![Game](https://imgur.com/FmNgFxR.jpg)
