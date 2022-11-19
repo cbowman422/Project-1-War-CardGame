@@ -1,6 +1,6 @@
 # GAME OF WAR - Project 1
 
-# How to play
+## How to play
 
 - to start press the start button
 - press draw to flip your cards
@@ -12,7 +12,7 @@
 - first player to get all of the cards wins
 - if you go into war with less than 5 cards your last card value is used
 
-# How the code works
+## How the code works
 
 - a full deck is generted from an object creating the 52 cards
 - the deck of cards is shuffled rondomly in the array
@@ -29,7 +29,7 @@
 - CSS to style
 
 
-# Sudo code
+## Sudo code
 
 - have an array of all cards of a deck
 - have a button to play
@@ -38,3 +38,6 @@
 - check who wins
 - save score until are cards are gone and decide a winner
 - have a reset button
+
+## Game Frame
+![Game](image.png)
