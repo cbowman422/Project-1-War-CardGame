@@ -1,7 +1,17 @@
 # GAME OF WAR - Project 1
 
-## How to play
+## Screenshot
+![Game](https://imgur.com/FmNgFxR.jpg)
 
+## Technologies Used
+- HTML
+- CSS 
+- JavaScript
+
+## Link To Game
+https://cbowman422.github.io/project-1/
+
+## How to play
 - to start press the start button
 - press draw to flip your cards
 - who evers card has a higher value wins that round
@@ -13,7 +23,6 @@
 - if you go into war with less than 5 cards your last card value is used
 
 ## How the code works
-
 - a full deck is generted from an object creating the 52 cards
 - the deck of cards is shuffled rondomly in the array
 - the deck is delt to the two players with every other card
@@ -30,7 +39,6 @@
 
 
 ## Sudo code
-
 - have an array of all cards of a deck
 - have a button to play
 - shuffle deck
@@ -40,6 +48,3 @@
 - check who wins round
 - save score until are cards are gone and decide a winner of game
 - have a reset button
-
-## Game Frame
-![Game](https://imgur.com/FmNgFxR.jpg)
