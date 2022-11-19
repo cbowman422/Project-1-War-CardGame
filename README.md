@@ -33,10 +33,12 @@
 
 - have an array of all cards of a deck
 - have a button to play
-- run through the array and pick a random card 
-- have another player and the computer player also
-- check who wins
-- save score until are cards are gone and decide a winner
+- shuffle deck
+- deal deck
+- pick fist value of arrays for players first card
+- have two players
+- check who wins round
+- save score until are cards are gone and decide a winner of game
 - have a reset button
 
 ## Game Frame
