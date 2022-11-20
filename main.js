@@ -136,31 +136,30 @@ function checkWinnerHand(){
         playerOneDeck.splice(0,1)
         playerTwoDeck.splice(0,1)
     }
-    if (playerOneCurrentHandNumber === playerTwoCurrentHandNumber && playerOneDeck.length >= 6 && playerTwoDeck.length >= 6){
+    if (playerOneCurrentHandNumber === playerTwoCurrentHandNumber && playerOneDeck.length >= 5 && playerTwoDeck.length >= 5){
         playerOneDeckWarHand = playerOneDeck[4];
         playerTwoDeckWarHand = playerTwoDeck[4];
-        if (playerOneDeck)
         warExecution()
     }
-    if (playerOneCurrentHandNumber === playerTwoCurrentHandNumber && playerOneDeck.length > 6 && playerTwoDeck.length < 6){
+    if (playerOneCurrentHandNumber === playerTwoCurrentHandNumber && playerTwoDeck.length < 5){
         document.querySelector('#displayHand').innerHTML = "</strong> Player 1 </strong> WINS the </strong> WAR </strong>!";
         cardDeckArray = [];
         setTimeout( () => {
             playerOneDeck = [];
             playerTwoDeck = [];
-        }, 2000);
+        }, 1000);
         buttonDraw.removeEventListener('click', buttonDrawClick);
         buttonStart.addEventListener('click', buttonStartClick);
         document.querySelector('#buttonStart').style.background = "";
         return
     }
-    if (playerOneCurrentHandNumber === playerTwoCurrentHandNumber && playerOneDeck.length < 6 && playerTwoDeck.length > 6){
+    if (playerOneCurrentHandNumber === playerTwoCurrentHandNumber && playerOneDeck.length < 5) {
         document.querySelector('#displayHand').innerHTML = "</strong> Player 2 </strong> WINS the </strong> WAR </strong>!";
         cardDeckArray = [];
         setTimeout( () => {
             playerOneDeck = [];
             playerTwoDeck = [];
-        }, 2000);
+        }, 1000);
         buttonDraw.removeEventListener('click', buttonDrawClick);
         buttonStart.addEventListener('click', buttonStartClick);
         document.querySelector('#buttonStart').style.background = "";
@@ -256,7 +255,7 @@ function checkWinnerHandWar(){
         playerTwoDeck.splice(0,5)
         
     }
-    if (playerOneCurrentHandNumber === playerTwoCurrentHandNumber && playerOneDeck.length >= 6 && playerTwoDeck.length >= 6){
+    if (playerOneCurrentHandNumber === playerTwoCurrentHandNumber && playerOneDeck.length >= 9 && playerTwoDeck.length >= 9){
         warExtraArray.push(playerOneDeck[0], playerOneDeck[1], playerOneDeck[2], playerOneDeck[3], playerOneDeck[4])
         warExtraArray.push(playerTwoDeck[0], playerTwoDeck[1], playerTwoDeck[2], playerTwoDeck[3], playerTwoDeck[4])
         playerOneDeck.splice(0,5)
@@ -264,57 +263,33 @@ function checkWinnerHandWar(){
             console.log(playerOneDeck)
             console.log(playerTwoDeck)
             console.log(warExtraArray + " wea")
-            if (playerOneDeck.length > 6 && playerTwoDeck.length > 6){
         warExecution()
-            } if (playerOneDeck.length > 6 && playerTwoDeck.length < 6){
-                document.querySelector('#displayHand').innerHTML = "</strong> Player 1 </strong> WINS the </strong> WAR </strong>!";
-                cardDeckArray = [];
-                setTimeout( () => {
-                    playerOneDeck = [];
-                    playerTwoDeck = [];
-                }, 2000);
-                buttonDraw.removeEventListener('click', buttonDrawClick);
-                buttonStart.addEventListener('click', buttonStartClick);
-                document.querySelector('#buttonStart').style.background = "";
-                return
-            } if (playerOneDeck.length < 6 && playerTwoDeck.length > 6){
-                document.querySelector('#displayHand').innerHTML = "</strong> Player 2 </strong> WINS the </strong> WAR </strong>!";
-                cardDeckArray = [];
-                setTimeout( () => {
-                    playerOneDeck = [];
-                    playerTwoDeck = [];
-                }, 2000);
-                buttonDraw.removeEventListener('click', buttonDrawClick);
-                buttonStart.addEventListener('click', buttonStartClick);
-                document.querySelector('#buttonStart').style.background = "";
-                return
-            }
     }
-    // if (playerOneCurrentHandNumber === playerTwoCurrentHandNumber && playerOneDeck.length > 6 && playerTwoDeck.length < 6){
-    //     document.querySelector('#displayHand').innerHTML = "</strong> Player 1 </strong> WINS the </strong> WAR </strong>!";
-    //     cardDeckArray = [];
-    //     setTimeout( () => {
-    //         playerOneDeck = [];
-    //         playerTwoDeck = [];
-    //     }, 2000);
-    //     buttonDraw.removeEventListener('click', buttonDrawClick);
-    //     buttonStart.addEventListener('click', buttonStartClick);
-    //     document.querySelector('#buttonStart').style.background = "";
-    //     return
-    // }
-    // if (playerOneCurrentHandNumber === playerTwoCurrentHandNumber && playerOneDeck.length < 6 && playerTwoDeck.length > 6){
-    //     document.querySelector('#displayHand').innerHTML = "</strong> Player 2 </strong> WINS the </strong> WAR </strong>!";
-    //     cardDeckArray = [];
-    //     setTimeout( () => {
-    //         playerOneDeck = [];
-    //         playerTwoDeck = [];
-    //     }, 2000);
-    //     buttonDraw.removeEventListener('click', buttonDrawClick);
-    //     buttonStart.addEventListener('click', buttonStartClick);
-    //     document.querySelector('#buttonStart').style.background = "";
-    //     return
-    // }
-
+    if (playerOneCurrentHandNumber === playerTwoCurrentHandNumber && playerTwoDeck.length < 9){
+        document.querySelector('#displayHand').innerHTML = "</strong> Player 1 </strong> WINS the </strong> WAR </strong>!";
+        cardDeckArray = [];
+        setTimeout( () => {
+            playerOneDeck = [];
+            playerTwoDeck = [];
+        }, 1000);
+        buttonDraw.removeEventListener('click', buttonDrawClick);
+        buttonStart.addEventListener('click', buttonStartClick);
+        document.querySelector('#buttonStart').style.background = "";
+        return
+    }
+    if (playerOneCurrentHandNumber === playerTwoCurrentHandNumber && playerOneDeck.length < 9) {
+        document.querySelector('#displayHand').innerHTML = "</strong> Player 2 </strong> WINS the </strong> WAR </strong>!";
+        cardDeckArray = [];
+        setTimeout( () => {
+            playerOneDeck = [];
+            playerTwoDeck = [];
+        }, 1000);
+        buttonDraw.removeEventListener('click', buttonDrawClick);
+        buttonStart.addEventListener('click', buttonStartClick);
+        document.querySelector('#buttonStart').style.background = "";
+        return
+    } 
+    
 }
 
 function shuffleDeckPlayerOne() {
