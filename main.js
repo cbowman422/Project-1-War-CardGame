@@ -10,12 +10,10 @@ buttonStart.addEventListener('click', buttonStartClick);
 
 const cardsObject = {
     suit: [' &#9824;',' &#9827;', ' &#9829;', ' &#9830;'],
-    value: [2,3,4,5,6],
-    faceValue: [ 'J', 'Q'],
+    value: [2,3,4,5,6,7,8,9,10],
+    faceValue: [ 'J', 'Q', 'K', 'A'],
 }
 
-// value: [2,3,4,5,6,7,8,9,10],
-// faceValue: [ 'J', 'Q', 'K', 'A'],
 
 function buttonStartClick(){
     cardDeckArray = [];
