@@ -75,15 +75,12 @@ function buttonDrawClick() {
     if (playerOneDeck[0][0] === "1" || playerOneDeck[0][0] === "2" || playerOneDeck[0][0] === "3" || playerOneDeck[0][0] === "4" || playerOneDeck[0][0] === "5" || playerOneDeck[0][0] === "6" || playerOneDeck[0][0] === "7" || playerOneDeck[0][0] === "8" || playerOneDeck[0][0] === "9"){
         playerOneCurrentHand = playerOneDeck[0].match(/\d+/)
         playerOneCurrentHandNumber = Number(playerOneCurrentHand)
-        console.log(playerOneCurrentHandNumber)
     }
     if(playerOneDeck[0][0] === "J"){
         playerOneCurrentHandNumber = 11;
-        console.log(playerOneCurrentHandNumber)
     }
     if(playerOneDeck[0][0] === "Q"){
         playerOneCurrentHandNumber = 12;
-        console.log(playerOneCurrentHandNumber)
     }
     if(playerOneDeck[0][0] === "K"){
         playerOneCurrentHandNumber = 13;
@@ -95,15 +92,12 @@ function buttonDrawClick() {
     if (playerTwoDeck[0][0] === "1" || playerTwoDeck[0][0] === "2" || playerTwoDeck[0][0] === "3" || playerTwoDeck[0][0] === "4" || playerTwoDeck[0][0] === "5" || playerTwoDeck[0][0] === "6" || playerTwoDeck[0][0] === "7" || playerTwoDeck[0][0] === "8" || playerTwoDeck[0][0] === "9"){
         playerTwoCurrentHand = playerTwoDeck[0].match(/\d+/)
         playerTwoCurrentHandNumber = Number(playerTwoCurrentHand)
-        console.log(playerTwoCurrentHandNumber)
     }
     if(playerTwoDeck[0][0] === "J"){
         playerTwoCurrentHandNumber = 11;
-        console.log(playerTwoCurrentHandNumber)
     }
     if(playerTwoDeck[0][0] === "Q"){
         playerTwoCurrentHandNumber = 12;
-        console.log(playerTwoCurrentHandNumber)
     }
     if(playerTwoDeck[0][0] === "K"){
         playerTwoCurrentHandNumber = 13;
@@ -115,8 +109,6 @@ function buttonDrawClick() {
     shuffleCounter()
     displayDeck()
     checkWinnerGame()
-    console.log(playerOneDeck)
-    console.log(playerTwoDeck)
 }
 
 //The metacharacter \d search for digits, which are also numbers. The match() method uses regular expressions to retrieve it results. When used the match() with \d, it returns the number
@@ -168,7 +160,7 @@ function checkWinnerHand(){
 }
 
 function warExecution(){
-    console.log("War")
+    
     buttonDraw.removeEventListener('click', buttonDrawClick);
     setTimeout( () => {
         document.querySelector('#playerOneHand').innerHTML = playerOneDeckWarHand;
@@ -260,9 +252,6 @@ function checkWinnerHandWar(){
         warExtraArray.push(playerTwoDeck[0], playerTwoDeck[1], playerTwoDeck[2], playerTwoDeck[3], playerTwoDeck[4])
         playerOneDeck.splice(0,5)
         playerTwoDeck.splice(0,5)
-            console.log(playerOneDeck)
-            console.log(playerTwoDeck)
-            console.log(warExtraArray + " wea")
         warExecution()
     }
     if (playerOneCurrentHandNumber === playerTwoCurrentHandNumber && playerTwoDeck.length < 9){

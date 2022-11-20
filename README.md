@@ -37,6 +37,7 @@ https://cbowman422.github.io/project-1/
 - once a players index reaches 0 the other player wins
 - DOM is used to interact with the HTML
 - CSS to style
+- if you lose with 6,7, or 8 cards left that means you went into double war and did not have enough cards.
 
 
 
