@@ -17,7 +17,7 @@ https://cbowman422.github.io/project-1/
 - who evers card has a higher value wins that round
 - if the value of the cards are the same then the WAR begins
 - during war your next 3 cards are skipped and the fourth card is flipped, whose ever value is higher wins all the cards from that round
-- if the card values match you go into war again until someone has a higher value
+- if the card values match you go into war again until someone has a higher value (this is done automatically)
 - each players deck is shuffled every 26 draws
 - first player to get all of the cards wins
 - if you go into war with less than 5 cards you lose
