@@ -20,7 +20,8 @@ https://cbowman422.github.io/project-1/
 - if the card values match you go into war again until someone has a higher value
 - each players deck is shuffled every 26 draws
 - first player to get all of the cards wins
-- if you go into war with less than 5 cards your last card value is used
+- if you go into war with less than 5 cards you lose
+
 
 ## How the code works
 - a full deck is generted from an object creating the 52 cards
@@ -36,6 +37,7 @@ https://cbowman422.github.io/project-1/
 - once a players index reaches 0 the other player wins
 - DOM is used to interact with the HTML
 - CSS to style
+
 
 
 ## Sudo code
