@@ -1,7 +1,7 @@
 # GAME OF WAR - Project 1
 
 ## Screenshot
-![Game](https://imgur.com/FmNgFxR.jpg)
+![Game](https://imgur.com/tdKh4tH.jpg)
 
 ## Technologies Used
 - HTML
