@@ -132,7 +132,7 @@ function checkWinnerHand(){
         warExecution()
     }
     if (playerOneCurrentHandNumber === playerTwoCurrentHandNumber && playerTwoDeck.length < 5){
-        document.querySelector('#displayHand').innerHTML = "</strong> Player 1 </strong> WINS the </strong> WAR </strong>!";
+        document.querySelector('#displayHand').innerHTML = "</strong> Player 1 </strong> WINS!";
         cardDeckArray = [];
         setTimeout( () => {
             playerOneDeck = [];
@@ -144,7 +144,7 @@ function checkWinnerHand(){
         return
     }
     if (playerOneCurrentHandNumber === playerTwoCurrentHandNumber && playerOneDeck.length < 5) {
-        document.querySelector('#displayHand').innerHTML = "</strong> Player 2 </strong> WINS the </strong> WAR </strong>!";
+        document.querySelector('#displayHand').innerHTML = "</strong> Player 2 </strong> WINS!";
         cardDeckArray = [];
         setTimeout( () => {
             playerOneDeck = [];
@@ -253,7 +253,7 @@ function checkWinnerHandWar(){
         warExecution()
     }
     if (playerOneCurrentHandNumber === playerTwoCurrentHandNumber && playerTwoDeck.length < 9){
-        document.querySelector('#displayHand').innerHTML = "</strong> Player 1 </strong> WINS the </strong> WAR </strong>!";
+        document.querySelector('#displayHand').innerHTML = "</strong> Player 1 </strong> WINS!";
         cardDeckArray = [];
         setTimeout( () => {
             playerOneDeck = [];
@@ -265,7 +265,7 @@ function checkWinnerHandWar(){
         return
     }
     if (playerOneCurrentHandNumber === playerTwoCurrentHandNumber && playerOneDeck.length < 9) {
-        document.querySelector('#displayHand').innerHTML = "</strong> Player 2 </strong> WINS the </strong> WAR </strong>!";
+        document.querySelector('#displayHand').innerHTML = "</strong> Player 2 </strong> WINS!";
         cardDeckArray = [];
         setTimeout( () => {
             playerOneDeck = [];
@@ -302,7 +302,7 @@ function shuffleDeckPlayerTwo() {
 
 function checkWinnerGame(){
     if (playerOneDeck.length === 0){
-        document.querySelector('#displayHand').innerHTML = "</strong> Player 2 </strong> WINS the </strong> WAR </strong>!";
+        document.querySelector('#displayHand').innerHTML = "</strong> Player 2 </strong> WINS!";
         cardDeckArray = [];
         playerOneDeck = [];
         playerTwoDeck = [];
@@ -311,7 +311,7 @@ function checkWinnerGame(){
         document.querySelector('#buttonStart').style.background = "";
     }
     if (playerTwoDeck.length === 0){
-        document.querySelector('#displayHand').innerHTML = "</strong> Player 1 </strong> WINS the </strong> WAR </strong>!";
+        document.querySelector('#displayHand').innerHTML = "</strong> Player 1 </strong> WINS!";
         cardDeckArray = [];
         playerOneDeck = [];
         playerTwoDeck = [];
