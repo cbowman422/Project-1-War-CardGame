@@ -1,5 +1,8 @@
 # GAME OF WAR - Project 1
 
+## Link to Deployment
+https://cb-war-card-game.netlify.app/
+
 ## Screenshot
 ![Game](https://imgur.com/9d5PwJn.jpg)
 
